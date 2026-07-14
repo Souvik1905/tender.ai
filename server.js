@@ -44,12 +44,14 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 // Connect to Database, then Start Server
 async function startServer() {
-  await connectDB();
-  
+  try {
+    await connectDB();
+  } catch (error) {
+    logger.error('Database connection failed during startup, but the server will continue to run. %O', error);
+  }
+
   app.listen(PORT, () => {
     logger.info(`Server is running in ${process.env.NODE_ENV} mode on port ${PORT}`);
-    
-    // Start background cron jobs for the crawlers
     initScheduler();
   });
 }

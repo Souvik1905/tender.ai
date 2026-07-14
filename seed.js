@@ -1,10 +1,10 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const User = require('../models/User');
-const Tender = require('../models/Tender');
-const Alert = require('../models/Alert');
-const { generateMockTender } = require('../services/mockDataGenerator');
-const logger = require('../utils/logger');
+const User = require('./models/User');
+const Tender = require('./models/Tender');
+const Alert = require('./models/Alert');
+const { generateMockTender } = require('./services/mockDataGenerator');
+const logger = require('./utils/logger');
 async function seedDatabase() {
   try {
     logger.info('Database Seeder: Starting seed process...');

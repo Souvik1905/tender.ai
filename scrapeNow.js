@@ -1,7 +1,7 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const { runCrawlJob } = require('../services/scheduler');
-const logger = require('../utils/logger');
+const { runCrawlJob } = require('./services/scheduler');
+const logger = require('./utils/logger');
 async function triggerScrape() {
   try {
     logger.info('Scrape Exec: Connecting to MongoDB...');
